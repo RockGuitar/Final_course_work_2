@@ -21,7 +21,7 @@ public class AdsDto {
   private String image = null;
 
   @JsonProperty("pk")
-  private Integer pk = null;
+  private Long id = null;
 
   @JsonProperty("price")
   private Integer price = null;
@@ -67,8 +67,8 @@ public class AdsDto {
     this.image = image;
   }
 
-  public AdsDto pk( Integer pk) {
-    this.pk = pk;
+  public AdsDto id( Long id) {
+    this.id = id;
     return this;
   }
 
@@ -78,12 +78,12 @@ public class AdsDto {
    **/
   @Schema(description = "")
   
-    public Integer getPk() {
-    return pk;
+    public Long getId() {
+    return id;
   }
 
-  public void setPk(Integer pk) {
-    this.pk = pk;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public AdsDto price( Integer price) {
@@ -136,14 +136,14 @@ public class AdsDto {
     AdsDto ads = (AdsDto) o;
     return Objects.equals(this.author, ads.author) &&
         Objects.equals(this.image, ads.image) &&
-        Objects.equals(this.pk, ads.pk) &&
+        Objects.equals(this.id, ads.id) &&
         Objects.equals(this.price, ads.price) &&
         Objects.equals(this.title, ads.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, image, pk, price, title);
+    return Objects.hash(author, image, id, price, title);
   }
 
   @Override
@@ -153,7 +153,7 @@ public class AdsDto {
     
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
-    sb.append("    pk: ").append(toIndentedString(pk)).append("\n");
+    sb.append("    pk: ").append(toIndentedString(id)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");

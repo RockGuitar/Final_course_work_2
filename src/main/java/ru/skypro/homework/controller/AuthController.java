@@ -34,7 +34,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register( @RequestBody RegisterReqDto req) {
-        RoleDto role = req.getRole() == null ? USER : req.getRole();
+        RoleDto role = USER;
         if (authService.register(req, role)) {
             return ResponseEntity.ok().build();
         } else {
