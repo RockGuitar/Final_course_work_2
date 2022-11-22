@@ -3,17 +3,18 @@ package ru.skypro.homework.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "ads")
 public class Ads {
     @Id
     @GeneratedValue
     private Integer id;
+    private String image;
+    private Integer price;
+    private String title;
 
     @ManyToOne
     @JoinColumn(name = "ad_creator")
     private User user;
-    private String image;
-    private Integer price;
-    private String title;
 
     public User getUser () {
         return user;

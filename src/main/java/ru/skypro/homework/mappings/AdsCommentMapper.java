@@ -1,11 +1,10 @@
 package ru.skypro.homework.mappings;
-
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import ru.skypro.homework.dto.AdsCommentDto;
 import ru.skypro.homework.model.AdsComment;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface AdsCommentMapper {
     AdsCommentMapper INSTANCE = Mappers.getMapper(AdsCommentMapper.class);
 

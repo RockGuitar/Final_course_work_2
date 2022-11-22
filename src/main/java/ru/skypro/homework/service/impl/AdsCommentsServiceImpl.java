@@ -1,11 +1,11 @@
 package ru.skypro.homework.service.impl;
 
-import ru.skypro.homework.model.Ads;
+
+import org.springframework.stereotype.Service;
 import ru.skypro.homework.model.AdsComment;
 import ru.skypro.homework.repository.AdsCommentRepository;
-import ru.skypro.homework.repository.AdsRepository;
 import ru.skypro.homework.service.AdsCommentService;
-
+@Service
 public class AdsCommentsServiceImpl implements AdsCommentService {
 
     private AdsCommentRepository adsCommentRepository;

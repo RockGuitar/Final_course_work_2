@@ -1,10 +1,11 @@
 package ru.skypro.homework.service.impl;
 
+import org.springframework.stereotype.Service;
 import ru.skypro.homework.model.Ads;
-import ru.skypro.homework.model.User;
 import ru.skypro.homework.repository.AdsRepository;
 import ru.skypro.homework.service.AdsService;
 
+@Service
 public class AdsServiceImpl implements AdsService {
 
     private AdsRepository adsRepository;

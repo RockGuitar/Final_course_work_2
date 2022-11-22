@@ -22,8 +22,8 @@ public class AdsCommentDto {
   @JsonProperty("createdAt")
   private OffsetDateTime createdAt = null;
 
-  @JsonProperty("pk")
-  private Integer pk = null;
+  @JsonProperty("id")
+  private Integer id = null;
 
   @JsonProperty("text")
   private String text = null;
@@ -67,8 +67,8 @@ public class AdsCommentDto {
     this.createdAt = createdAt;
   }
 
-  public AdsCommentDto pk( Integer pk) {
-    this.pk = pk;
+  public AdsCommentDto id( Integer id) {
+    this.id = id;
     return this;
   }
 
@@ -78,12 +78,12 @@ public class AdsCommentDto {
    **/
   @Schema(description = "")
   
-    public Integer getPk() {
-    return pk;
+    public Integer getId() {
+    return id;
   }
 
-  public void setPk(Integer pk) {
-    this.pk = pk;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public AdsCommentDto text( String text) {
@@ -117,13 +117,13 @@ public class AdsCommentDto {
     AdsCommentDto adsComment = (AdsCommentDto) o;
     return Objects.equals(this.author, adsComment.author) &&
         Objects.equals(this.createdAt, adsComment.createdAt) &&
-        Objects.equals(this.pk, adsComment.pk) &&
+        Objects.equals(this.id, adsComment.id) &&
         Objects.equals(this.text, adsComment.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, createdAt, pk, text);
+    return Objects.hash(author, createdAt, id, text);
   }
 
   @Override
@@ -133,7 +133,7 @@ public class AdsCommentDto {
     
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    pk: ").append(toIndentedString(pk)).append("\n");
+    sb.append("    pk: ").append(toIndentedString(id)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
