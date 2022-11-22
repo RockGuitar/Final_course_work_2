@@ -20,7 +20,7 @@ public class AdsDto {
   @JsonProperty("image")
   private String image = null;
 
-  @JsonProperty("pk")
+  @JsonProperty("id")
   private Long id = null;
 
   @JsonProperty("price")

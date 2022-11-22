@@ -8,38 +8,37 @@ import ru.skypro.homework.mappings.UserMapper;
 import ru.skypro.homework.model.User;
 import ru.skypro.homework.service.UserService;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("/users")
 @CrossOrigin(value = "http://localhost:3000")
-public class UserController {
+public class UserController{
 
     private final UserService userService;
-    private final UserMapper userMapper;
 
-    //Здесь ошибка: userMapper could not Autowire, no beans of userMapper detected
-    public UserController ( UserService userService, UserMapper userMapper ) {
+    public UserController ( UserService userService ) {
         this.userService = userService;
-        this.userMapper = userMapper;
     }
     @Secured("USER")
     @PatchMapping("/me")
     public UserDto updateUser( @RequestBody UserDto user){
-        User updatedUser = userMapper.userDtoToUser(user);
+        User updatedUser = UserMapper.INSTANCE.userDtoToUser(user);
         userService.updateUser(updatedUser);
         return user;
     }
     @Secured("USER")
-    @GetMapping("/me")
-    public UserDto readUser(Long id){
+    @GetMapping("{id}")
+    public UserDto readUser(@PathVariable Long id){
         User foundUser = userService.readUser(id);
-        return userMapper.userToUserDto(foundUser);
+        return UserMapper.INSTANCE.userToUserDto(foundUser);
     }
-    @Secured("USER")
-    @DeleteMapping
-    public void deleteUser(Long id){
-        User foundUser = userService.readUser(id);
-        UserDto foundUserDto = userMapper.userToUserDto(foundUser);
-        userService.deleteUser(foundUserDto.getId());
+
+    @GetMapping("/me")
+    public Collection<UserDto> getAllUsers(){
+        return userService.getAllUsers().stream().
+                map(UserMapper.INSTANCE::userToUserDto).collect(Collectors.toList());
     }
 
 }

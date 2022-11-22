@@ -12,16 +12,14 @@ import ru.skypro.homework.service.AdsService;
 @RequestMapping("/ads")
 @CrossOrigin(value = "http://localhost:3000")
 public class AdsController {
-//
-//    private final AdsService adsService;
-//    private final AdsMapper adsMapper;
-//
-//    @Autowired
-//    public AdsController ( AdsService adsService, AdsMapper adsMapper ) {
-//        this.adsService = adsService;
-//        this.adsMapper = adsMapper;
-//    }
-//
+
+    private final AdsService adsService;
+
+    @Autowired
+    public AdsController ( AdsService adsService) {
+        this.adsService = adsService;
+    }
+
 //    @Secured("USER")
 //    @PatchMapping("/me")
 //    public AdsDto updateAds( @RequestBody AdsDto adsDto){

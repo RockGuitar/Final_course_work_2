@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.skypro.homework.dto.LoginReqDto;
 import ru.skypro.homework.dto.RegisterReqDto;
 import ru.skypro.homework.dto.RoleDto;
+import ru.skypro.homework.repository.UserRepository;
 import ru.skypro.homework.service.AuthService;
+import ru.skypro.homework.service.UserService;
 
 import static ru.skypro.homework.dto.RoleDto.USER;
 

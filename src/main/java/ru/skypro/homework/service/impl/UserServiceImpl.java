@@ -1,9 +1,12 @@
 package ru.skypro.homework.service.impl;
 
 import org.springframework.stereotype.Service;
+import ru.skypro.homework.mappings.UserMapper;
 import ru.skypro.homework.model.User;
 import ru.skypro.homework.repository.UserRepository;
 import ru.skypro.homework.service.UserService;
+
+import java.util.Collection;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -22,7 +25,5 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
-    public void deleteUser ( Long id ) {
-        userRepository.deleteById(id);
-    }
+    public Collection<User> getAllUsers(){return userRepository.getAllUsers();}
 }

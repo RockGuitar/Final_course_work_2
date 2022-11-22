@@ -4,9 +4,11 @@ package ru.skypro.homework.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.OffsetDateTime;
 
 @Entity
+@Table(name = "ads_comment")
 public class AdsComment {
     @Id
     @GeneratedValue
@@ -36,7 +38,7 @@ public class AdsComment {
         return id;
     }
 
-    public void setId ( Integer pk ) {
+    public void setId ( Integer id ) {
         this.id = id;
     }
 
